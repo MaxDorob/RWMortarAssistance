@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BaseAutoTurretGun">
+    <defName>Turret_DummyGun</defName>
+    <label>turret dummy gun</label>
+    <graphicData>
+      <texPath>Things/Building/Turrets/MortarAssistance_gun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>Just a dummy.</description>
+    <!--<soundInteract>Interact_ChargeRifle</soundInteract>-->
+    <statBases>
+      <SightsEfficiency>1</SightsEfficiency>
+      <ShotSpread>0.06</ShotSpread>
+      <SwayFactor>0.86</SwayFactor>
+      <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+      <NightVisionEfficiency_Weapon>0.5</NightVisionEfficiency_Weapon>
+      <Mass>10</Mass>
+    </statBases>
+    <verbs>
+      <li Class="CombatExtended.VerbPropertiesCE">
+        <verbClass>CombatExtended.Verb_MarkForArtillery</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_Dummy</defaultProjectile>
+        <warmupTime>9</warmupTime>
+        <range>300</range>
+        <muzzleFlashScale>0</muzzleFlashScale>
+        <onlyManualCast>true</onlyManualCast>
+        <requireLineOfSight>false</requireLineOfSight>
+        <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <ignorePartialLoSBlocker>true</ignorePartialLoSBlocker>
+      </li>
+    </verbs>
+  </ThingDef>
+</Defs>

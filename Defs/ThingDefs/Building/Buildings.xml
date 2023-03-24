@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>SatelliteLauncher</defName>
+    <label>satellite launcher</label>
+    <description>A fueling port for launching one transport pod. Pod launchers can launch as a group - but the launchers must be placed adjacent to each other.</description>
+    <thingClass>MortarAssistance.Building_TurretMortarAssistance</thingClass>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Building/Misc/PodLauncher</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+    </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <size>(1,2)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2200</uiOrder>
+    <canOverlapZones>false</canOverlapZones>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <building>
+      <!--<hasFuelingPort>true</hasFuelingPort>-->
+      <turretGunDef>Turret_DummyGun</turretGunDef>
+      <ai_combatDangerous>false</ai_combatDangerous>
+    </building>
+
+    <statBases>
+      <WorkToBuild>48000</WorkToBuild>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Mass>20</Mass>
+      <Bulk>25</Bulk>
+      <AimingAccuracy>0.75</AimingAccuracy>
+      <ShootingAccuracyTurret>1.25</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    
+    <comps>
+      <!--<li Class="MortarAssistance.CompProperties_MortarAssistance">        
+      </li>-->
+      <li Class="MortarAssistance.CompProperties_SateliteController">
+        <fuelCapacity>150.0</fuelCapacity>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>75</initialConfigurableTargetFuelLevel>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <drawFuelGaugeInMap>true</drawFuelGaugeInMap>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+      <!--<li Class="CompProperties_Refuelable">
+        <fuelCapacity>150.0</fuelCapacity>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>75</initialConfigurableTargetFuelLevel>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <drawFuelGaugeInMap>true</drawFuelGaugeInMap>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>-->
+    </comps>
+    <placeWorkers>
+      <li>MortarAssistance.PlaceWorker_SateliteLauncher</li>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <!--<researchPrerequisites>
+      <li>TransportPod</li>
+    </researchPrerequisites>-->
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <uiIconScale>0.9</uiIconScale>
+  </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>ComputerMortarAssistance</defName>
+    <label>artillery computer assistant</label>
+    <description>Computer that helps to calculate artillery shift.</description>
+    <thingClass>MortarAssistance.Building_TurretMortarAssistance</thingClass>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Building/Furniture/Table2x2</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <size>(2,2)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2200</uiOrder>
+    <canOverlapZones>false</canOverlapZones>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <building>
+      <turretGunDef>Turret_DummyGun</turretGunDef>
+      <ai_combatDangerous>false</ai_combatDangerous>
+    </building>
+
+    <statBases>
+      <WorkToBuild>48000</WorkToBuild>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Mass>20</Mass>
+      <Bulk>25</Bulk>
+      <AimingAccuracy>0.75</AimingAccuracy>
+      <ShootingAccuracyTurret>1.25</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+
+    <comps>
+      <!--<li Class="MortarAssistance.CompProperties_MortarAssistance">
+      </li>-->
+      <li Class="CompProperties_Mannable">
+        <manWorkType>Violent</manWorkType>
+      </li>
+      <!--<li Class="CompProperties_Refuelable">
+        <fuelCapacity>150.0</fuelCapacity>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>75</initialConfigurableTargetFuelLevel>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <drawFuelGaugeInMap>true</drawFuelGaugeInMap>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>-->
+    </comps>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <!--<researchPrerequisites>
+      <li>TransportPod</li>
+    </researchPrerequisites>-->
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <uiIconScale>0.9</uiIconScale>
+  </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>MapMortarAssistance</defName>
+    <label>artillery map</label>
+    <description>Table with map and artillery calculation instruments.</description>
+    <thingClass>MortarAssistance.Building_TurretMortarAssistance</thingClass>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Building/Furniture/Table2x2</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <size>(2,2)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2200</uiOrder>
+    <canOverlapZones>false</canOverlapZones>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <building>
+      <turretGunDef>Turret_DummyGun</turretGunDef>
+      <ai_combatDangerous>false</ai_combatDangerous>
+    </building>
+
+    <statBases>
+      <WorkToBuild>48000</WorkToBuild>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Mass>20</Mass>
+      <Bulk>25</Bulk>
+      <AimingAccuracy>0.75</AimingAccuracy>
+      <ShootingAccuracyTurret>1.25</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+
+    <comps>
+      <!--<li Class="MortarAssistance.CompProperties_MortarAssistance">
+      </li>-->
+      <li Class="CompProperties_Mannable">
+        <manWorkType>Violent</manWorkType>
+      </li>
+      <!--<li Class="CompProperties_Refuelable">
+        <fuelCapacity>150.0</fuelCapacity>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>75</initialConfigurableTargetFuelLevel>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <drawFuelGaugeInMap>true</drawFuelGaugeInMap>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>-->
+    </comps>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <!--<researchPrerequisites>
+      <li>TransportPod</li>
+    </researchPrerequisites>-->
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <uiIconScale>0.9</uiIconScale>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>Satelite</defName>
+    <label>satelite</label>
+    <description>A launchable sub-orbital satelite.</description>
+    <graphicData>
+      <texPath>Things/Special/DropPod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+    <rotatable>false</rotatable>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <designationHotKey>Misc12</designationHotKey>
+    <fillPercent>0.5</fillPercent>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2200</uiOrder>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1600</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      
+      <li Class="MortarAssistance.CompProperties_SateliteLaunchable">
+        
+      </li>
+    </comps>
+    <inspectorTabs>
+      <li>ITab_ContentsTransporter</li>
+    </inspectorTabs>
+    <placeWorkers>
+      <li>MortarAssistance.PlaceWorker_NeedsSateliteLauncher</li>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
+    <!--<researchPrerequisites>
+      <li>TransportPod</li>
+    </researchPrerequisites>-->
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <uiIconScale>0.65</uiIconScale>
+  </ThingDef>
+</Defs>
